@@ -1,12 +1,13 @@
 #pragma once
 
 #include <cstdint>
+#include <string>
 // from <windows.h>
 #define RGB(r,g,b) ((uint32_t)(((uint8_t)(r)|((uint16_t)((uint8_t)(g))<<8))|(((uint32_t)(uint8_t)(b))<<16)))
 
 namespace vsite::oop::v2
 {
-	class color 
+	class color
 	{
 	private:
 
@@ -28,6 +29,8 @@ namespace vsite::oop::v2
 		void set_red(const double num);
 		void set_green(const double num);
 		void set_blue(const double num);
+
+		std::string to_hex(const int num);
 
 	};
 }

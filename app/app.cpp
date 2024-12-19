@@ -1,6 +1,8 @@
 #include "app.h"
 #include <algorithm>
 #include <cstdint>
+#include <string>
+#include <format>
 
 namespace vsite::oop::v2
 {
@@ -73,6 +75,11 @@ namespace vsite::oop::v2
 			return;
 		}
 		blue = num;
+	}
+
+	std::string color::to_hex(const int num)
+	{
+		return std::format("{:X}", num);
 	}
 
 
