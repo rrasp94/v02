@@ -8,7 +8,7 @@ namespace vsite::oop::v2
 {
 	color::color() : red(0.0), green(0.0), blue(0.0) {}
 
-	color::color(const color& other) 
+	color::color(const color& other)
 	{
 		red = other.red;
 		green = other.green;
@@ -29,7 +29,7 @@ namespace vsite::oop::v2
 		return (0.2126 * red) + (0.7152 * green) + (0.0722 * blue);
 	}
 
-	double color::get_red() const 
+	double color::get_red() const
 	{
 		return red;
 	}
@@ -44,43 +44,19 @@ namespace vsite::oop::v2
 
 	void color::set_red(const double num)
 	{
-		if (num < 0)
-			return;
-		else if (num > 1.0) 
-		{ 
-			red = 1.0;
-			return;
-		}
-		red = num;
-		
+		red = std::clamp(num, 0.0, 1.0);
 	}
 	void color::set_green(const double num)
 	{
-		if (num < 0)
-			return;
-		else if (num > 1.0)
-		{
-			green = 1.0;
-			return;
-		}
-		green = num;
+		green = std::clamp(num, 0.0, 1.0);
 	}
 	void color::set_blue(const double num)
 	{
-		if (num < 0)
-			return;
-		else if (num > 1.0)
-		{
-			blue = 1.0;
-			return;
-		}
-		blue = num;
+		blue = std::clamp(num, 0.0, 1.0);
 	}
 
 	std::string color::to_hex(const int num)
 	{
 		return std::format("{:X}", num);
 	}
-
-
-} // namespace
+}
